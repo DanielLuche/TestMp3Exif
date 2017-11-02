@@ -1,10 +1,14 @@
 package com.example.user.testmp3exif;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -51,6 +55,19 @@ public class MainActivity extends AppCompatActivity {
         Toolbox.buildInf();
         //
         setMp3Adapter();
+        //
+        lv_files.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Mp3Obj item = (Mp3Obj) adapterView.getItemAtPosition(i);
+
+                Intent intent = new Intent();
+                intent.setAction(android.content.Intent.ACTION_VIEW);
+                File file = new File(item.getAbsolutePath());
+                intent.setDataAndType(Uri.fromFile(file), "audio/*");
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -86,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     mp3Obj.setDuration(convertMillisecondsToString(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)));
                     mp3Obj.setAuthor(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
                     mp3Obj.setCover(BitmapFactory.decodeByteArray(mmr.getEmbeddedPicture(), 0, mmr.getEmbeddedPicture().length));
+                    mp3Obj.setAbsolutePath(file.getAbsolutePath());
                     //
                     ext = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_MIMETYPE);
                     //Log.d("MMR_lUCHE", mmr.toString());

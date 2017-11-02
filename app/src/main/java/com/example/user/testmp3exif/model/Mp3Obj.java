@@ -12,6 +12,7 @@ public class Mp3Obj {
     private String author;
     private String duration;
     private Bitmap cover;
+    private String absolutePath;
 
     public String getTitle() {
         return title;
@@ -43,5 +44,13 @@ public class Mp3Obj {
 
     public void setCover(Bitmap cover) {
         this.cover = cover;
+    }
+
+    public String getAbsolutePath() {
+        return absolutePath;
+    }
+
+    public void setAbsolutePath(String absolutePath) {
+        this.absolutePath = absolutePath;
     }
 }

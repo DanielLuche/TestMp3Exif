@@ -1,5 +1,9 @@
 package com.example.user.testmp3exif.utils;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+
 import java.io.File;
 
 /**
@@ -18,6 +22,18 @@ public class Toolbox {
         }
         int i = result ? 1: 0;
 
+    }
+
+    public static AlertDialog alertMsg(Context context, String title, String message, DialogInterface.OnClickListener positiveAction, boolean cancelable, boolean showNegative, DialogInterface.OnClickListener negativeAction){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
+
+        alertDialog
+                .setTitle(title)
+                .setMessage(message);
+
+
+
+        return alertDialog.show();
     }
 
 

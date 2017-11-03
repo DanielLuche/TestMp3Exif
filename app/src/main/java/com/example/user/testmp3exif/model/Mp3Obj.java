@@ -2,11 +2,15 @@ package com.example.user.testmp3exif.model;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
+
 /**
  * Created by User on 02/11/2017.
  */
 
-public class Mp3Obj {
+public class Mp3Obj implements Serializable{
+
+    private static final long serialVersionUID = 6553573892863018623L;
 
     private String title;
     private String author;

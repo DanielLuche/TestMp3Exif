@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TestMp3Exif</string>
+    <string name="generic_yes">Sim</string>
 </resources>

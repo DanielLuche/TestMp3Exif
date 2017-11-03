@@ -12,6 +12,9 @@ public class Constants {
             .getExternalStorageDirectory() +
             "/mp3Test";
 
+    public static final String PARAM_ABSOLUTE_PATH = "PARAM_ABSOLUTE_PATH";
+    public static final String PARAM_MP3_OBJECT = "PARAM_MP3_OBJECT";
+
 
 
 }

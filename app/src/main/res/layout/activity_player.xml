@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.example.user.testmp3exif.ui.PlayerActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player_act_tv_ttl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="sdsdd"
+                android:textColor="@color/colorWhite"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/player_act_iv_cover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:src="@drawable/ic_launcher_background" />
+
+            <ProgressBar
+                android:id="@+id/player_act_pb_track"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:max="100"
+                android:min="0"
+                android:padding="10dp"
+                android:progress="20"
+                android:progressTint="@color/colorAccent"
+                android:layout_marginBottom="15dp"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:id="@+id/player_act_iv_back_10s"
+                        android:layout_width="@dimen/icon_medium_width"
+                        android:layout_height="@dimen/icon_medium_height"
+                        android:src="@drawable/ic_replay_10_black_24dp"
+                        android:tint="@color/colorAccent"
+                        android:gravity="center"
+                        android:background="@drawable/icon_bg_states"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:id="@+id/player_act_iv_play_pause"
+                        android:layout_width="@dimen/icon_medium_width"
+                        android:layout_height="@dimen/icon_medium_height"
+                        android:src="@drawable/ic_play_arrow_black_24dp"
+                        android:tint="@color/colorAccent"
+                        android:gravity="center"
+                        android:background="@drawable/icon_bg_states"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:id="@+id/player_act_iv_forward_10s"
+                        android:layout_width="@dimen/icon_medium_width"
+                        android:layout_height="@dimen/icon_medium_height"
+                        android:src="@drawable/ic_forward_10_black_24dp"
+                        android:tint="@color/colorAccent"
+                        android:layout_gravity="center"
+                        android:background="@drawable/icon_bg_states"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

@@ -274,7 +274,7 @@ public class PlayerActivity extends AppCompatActivity {
 
         mThread = new Thread(){
             public void run() {
-                while (isPlaying) {
+                while (isPlaying && mThread.isAlive()) {
                     updateTrackInfo(mTrack.getDuration(), mTrack.getCurrentPosition());
                     try {
                         sleep(1000);
@@ -319,14 +319,14 @@ public class PlayerActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //
-        mDuration = mTrack.getDuration();
-        mCurrentTime = mTrack.getCurrentPosition();
         isPlaying = mTrack.isPlaying();
-        mTrack.stop();
-        mTrack.release();
         if(mThread.isAlive()){
             mThread.interrupt();
         }
+        //
+        mDuration = mTrack.getDuration();
+        mCurrentTime = mTrack.getCurrentPosition();
+        mTrack.stop();
+        mTrack.release();
     }
 }

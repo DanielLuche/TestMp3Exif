@@ -33,9 +33,8 @@
                 android:layout_marginBottom="15dp"
                 android:src="@drawable/ic_launcher_background" />
 
-            <ProgressBar
-                android:id="@+id/player_act_pb_track"
-                style="?android:attr/progressBarStyleHorizontal"
+            <SeekBar
+                android:id="@+id/player_act_sb_track"
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
                 android:backgroundTint="@color/colorPrimaryDark"
@@ -44,7 +43,19 @@
                 android:padding="10dp"
                 android:progress="20"
                 android:progressTint="@color/colorAccent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+            <TextView
+                android:id="@+id/player_act_tv_progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
+                android:textColor="@color/colorAccent"
+                android:gravity="center"
+                android:text="10 / 1000"
                 />
             <LinearLayout
                 android:layout_width="match_parent"

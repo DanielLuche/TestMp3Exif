@@ -5,13 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.user.testmp3exif.MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    >
 
     <TextView
         android:id="@+id/main_tv_lbl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"/>
+        android:text="Hello World!"
+        android:textColor="@color/colorWhite"/>
 
     <ListView
         android:id="@+id/main_lv_files"

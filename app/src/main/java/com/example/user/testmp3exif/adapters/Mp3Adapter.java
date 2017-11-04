@@ -62,10 +62,10 @@ public class Mp3Adapter extends BaseAdapter {
         TextView tv_duration = view.findViewById(R.id.mp3_cell_tv_duration);
         TextView tv_author  = view.findViewById(R.id.mp3_cell_tv_author);
         //
-        iv_cover.setImageBitmap(item.getCover());
+        iv_cover.setImageBitmap(item.getCoverBitmap());
         //
         tv_title.setText(item.getTitle());
-        tv_duration.setText(item.getDuration());
+        tv_duration.setText(item.getDurationFormated());
         tv_author.setText(item.getAuthor());
 
         return view;

@@ -3,7 +3,6 @@ package com.example.user.testmp3exif.utils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.BitmapFactory;
 import android.media.MediaMetadataRetriever;
 import android.support.annotation.Nullable;
 
@@ -61,7 +60,7 @@ public class Toolbox {
     }
 
     public static Mp3Obj buildMp3FromPath(String absolutePath){
-        Mp3Obj  mp3Obj = null;
+        Mp3Obj mp3Obj = null;
 
         MediaMetadataRetriever mmr = new MediaMetadataRetriever();
         mmr.setDataSource(absolutePath);
@@ -69,9 +68,10 @@ public class Toolbox {
         if(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_HAS_AUDIO) != null) {
             mp3Obj = new Mp3Obj();
             mp3Obj.setTitle(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
-            mp3Obj.setDuration(convertMillisecondsToString(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)));
+            mp3Obj.setDuration(Long.parseLong(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)));
+            mp3Obj.setDurationFormated(convertMillisecondsToString(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)));
             mp3Obj.setAuthor(mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
-            mp3Obj.setCover(BitmapFactory.decodeByteArray(mmr.getEmbeddedPicture(), 0, mmr.getEmbeddedPicture().length));
+            mp3Obj.setCover(mmr.getEmbeddedPicture());
             mp3Obj.setAbsolutePath(absolutePath);
             //
         }

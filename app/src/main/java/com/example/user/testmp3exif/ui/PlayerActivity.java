@@ -40,6 +40,7 @@ public class PlayerActivity extends AppCompatActivity {
     long mDuration = 0L;
     long mCurrentTime = 0L;
     boolean isPlaying = false;
+    boolean onBackPressed = false;
 
 
     @Override
@@ -275,6 +276,7 @@ public class PlayerActivity extends AppCompatActivity {
         mThread = new Thread(){
             public void run() {
                 while (isPlaying && mThread.isAlive()) {
+
                     updateTrackInfo(mTrack.getDuration(), mTrack.getCurrentPosition());
                     try {
                         sleep(1000);
@@ -315,17 +317,39 @@ public class PlayerActivity extends AppCompatActivity {
         //
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if(!onBackPressed) {
+            mDuration = mTrack.getDuration();
+            mCurrentTime = mTrack.getCurrentPosition();
+            isPlaying = mTrack.isPlaying();
+            //
+            //
+            if(mThread.isAlive()){
+                mThread.interrupt();
+            }
+            mTrack.stop();
+            mTrack.release();
+        }
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        isPlaying = mTrack.isPlaying();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        //
+        onBackPressed = true;
+        //
+        isPlaying = false;
+        //
         if(mThread.isAlive()){
             mThread.interrupt();
         }
-        //
-        mDuration = mTrack.getDuration();
-        mCurrentTime = mTrack.getCurrentPosition();
         mTrack.stop();
         mTrack.release();
     }
